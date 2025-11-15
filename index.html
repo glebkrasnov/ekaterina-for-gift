@@ -11,21 +11,21 @@
     <h1>Для продолжения, пройдите простой тест, ответив на несколько вопросов</h1>
     <p class="subtitle">Это нужно для того, чтобы проверить, являетесь ли Вы тем человеком, для кого предназначен этот подарок</p>
 
-    <form id="form">
+    <form id="form" autocomplete="off">
       <label>Введите Ваше имя</label>
-      <input type="text" id="name" required>
+      <input type="text" id="name" required autocomplete="off">
 
       <label>Введите Вашу дату рождения</label>
-      <input type="text" id="birth" required placeholder="DDMMYYYY">
+      <input type="text" id="birth" required placeholder="DDMMYYYY" autocomplete="off">
 
       <label>Кому принадлежит имя Фредди Фазбер?</label>
-      <input type="text" id="freddy" required>
+      <input type="text" id="freddy" required autocomplete="off">
 
       <label>Введите Ваш любимый вопрос</label>
-      <input type="text" id="favq" required>
+      <input type="text" id="favq" required autocomplete="off">
 
       <label>1 + 1</label>
-      <input type="text" id="math" required>
+      <input type="text" id="math" required autocomplete="off">
 
       <button type="submit">Проверить</button>
       <p id="error" class="error"></p>
@@ -33,35 +33,30 @@
   </div>
 
   <script>
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
+    document.getElementById("form").addEventListener("submit", function(e){
+      e.preventDefault();
 
-  let name = document.getElementById("name").value.trim().toLowerCase();
-  let birth = document.getElementById("birth").value.trim();
-  let freddy = document.getElementById("freddy").value.trim().toLowerCase();
-  let favq = document.getElementById("favq").value.trim().toLowerCase();
-  let math = document.getElementById("math").value.trim();
+      let name = document.getElementById("name").value.trim().toLowerCase();
+      let birth = document.getElementById("birth").value.trim();
+      let freddy = document.getElementById("freddy").value.trim().toLowerCase();
+      let favq = document.getElementById("favq").value.trim().toLowerCase();
+      let math = document.getElementById("math").value.trim();
 
-  // Множественные варианты
-  let freddyValid = ["медведю", "мишке", "медведь"];
-  let favValid = ["как дела", "как дела?"];
+      let freddyValid = ["медведю", "мишке", "медведь"];
+      let favValid = ["как дела", "как дела?"];
 
-  if (
-      name === "екатерина" &&
-      birth === "16012005" &&
-      freddyValid.includes(freddy) &&
-      favValid.includes(favq) &&
-      math === "2"
-  ) {
-      window.location.href = "https://yandex.ru/search/?text=github&clid=2270455&banerid=2359004952%3A4264128431525199871%3A678e649f70f221ad6890fa00&win=682&lr=116653";
-  } else {
-      document.getElementById("error").textContent = "Один или несколько ответов неверны";
-  }
-});
-</script>
+      if (
+          name === "екатерина" &&
+          birth === "16012005" &&
+          freddyValid.includes(freddy) &&
+          favValid.includes(favq) &&
+          math === "2"
+      ) {
+          window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
+      } else {
+          document.getElementById("error").textContent = "Один или несколько ответов неверны";
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-

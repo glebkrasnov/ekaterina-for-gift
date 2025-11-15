@@ -33,31 +33,34 @@
   </div>
 
   <script>
-    document.getElementById("form").addEventListener("submit", function(e){
-      e.preventDefault();
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
 
-      let name = document.getElementById("name").value.trim().toLowerCase();
-      let birth = document.getElementById("birth").value.trim();
-      let freddy = document.getElementById("freddy").value.trim().toLowerCase();
-      let favq = document.getElementById("favq").value.trim().toLowerCase();
-      let math = document.getElementById("math").value.trim();
+  let name = document.getElementById("name").value.trim().toLowerCase();
+  let birth = document.getElementById("birth").value.trim();
+  let freddy = document.getElementById("freddy").value.trim().toLowerCase();
+  let favq = document.getElementById("favq").value.trim().toLowerCase();
+  let math = document.getElementById("math").value.trim();
 
-      let favValid = ["как дела", "как дела?"];
+  // Множественные варианты
+  let freddyValid = ["медведю", "мишке", "медведь"];
+  let favValid = ["как дела", "как дела?"];
 
-      if (
-    name === "екатерина" &&
-    birth === "16012005" &&
-    (freddy === "медведю"freddy === "мишке") &&
-    (favq === "как дела" || favq === "как дела?") &&
-    math === "2"
-) {
-    window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
-} else {
-    document.getElementById("error").textContent = "Один или несколько ответов неверны";
-}
-    });
-  </script>
+  if (
+      name === "екатерина" &&
+      birth === "16012005" &&
+      freddyValid.includes(freddy) &&
+      favValid.includes(favq) &&
+      math === "2"
+  ) {
+      window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
+  } else {
+      document.getElementById("error").textContent = "Один или несколько ответов неверны";
+  }
+});
+</script>
 </body>
 </html>
+
 
 

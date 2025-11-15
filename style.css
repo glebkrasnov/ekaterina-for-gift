@@ -1,76 +1,84 @@
+/* ЗАДНИЙ ФОН */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: url("background.jpg") no-repeat center center fixed;
-  background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: url("background.jpg") no-repeat center center fixed; /* ТВОЙ ФОН */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Полное выравнивание по центру */
 }
 
+/* КОНТЕЙНЕР С ТЕСТОМ */
 .container {
-  max-width: 420px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 25px;
-  margin: 40px auto;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.25);
+    width: 90%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.88); /* Белая полупрозрачная карточка */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    text-align: center;
 }
 
+/* ТЕКСТ */
 h1 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  text-align: center;
+    font-size: 20px;
+    margin-bottom: 12px;
 }
 
 .subtitle {
-  font-size: 14px;
-  margin-bottom: 20px;
-  text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-label {
-  font-size: 15px;
-  margin-top: 10px;
-  display: block;
-}
-
+/* ИНПУТЫ */
 input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-  font-size: 15px;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    font-size: 16px;
 }
 
+/* КНОПКА */
 button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  background: #0078ff;
-  border: none;
-  color: white;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #5a7bff;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 button:hover {
-  background: #005fcc;
+    background: #4f6df0;
 }
 
+/* ОШИБКА */
 .error {
-  color: red;
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
+    color: red;
+    margin-top: 10px;
+    font-size: 16px;
 }
 
-@media (max-width: 420px) {
-  .container {
-    padding: 16px;
-    margin: 20px auto;
-  }
-  h1 { font-size: 18px; }
-  label, input, button { font-size: 14px; }
+/* МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 480px) {
+    .container {
+        max-width: 90%;
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    input, button {
+        font-size: 16px;
+    }
 }

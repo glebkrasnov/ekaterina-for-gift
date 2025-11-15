@@ -52,41 +52,46 @@
   </div>
 
   <script>
-    document.getElementById("form").addEventListener("submit", function(e){
-      e.preventDefault();
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
 
-      let name = document.getElementById("name").value.trim().toLowerCase();
-      let birth = document.getElementById("birth").value.trim();
-      let freddy = document.getElementById("freddy").value.trim().toLowerCase();
-      let favq = document.getElementById("favq").value.trim().toLowerCase();
-      let math = document.getElementById("math").value.trim();
+  let name = document.getElementById("name").value.trim().toLowerCase();
+  let birth = document.getElementById("birth").value.trim();
+  let freddy = document.getElementById("freddy").value.trim().toLowerCase();
+  let favq = document.getElementById("favq").value.trim().toLowerCase();
+  let math = document.getElementById("math").value.trim();
 
-      let freddyValid = ["медведю", "мишке", "медведь"];
-      let favValid = ["как дела", "как дела?"];
-      let birthValid = ["16012005", "16.01.2005"];
+  let freddyValid = ["медведю", "мишке", "медведь"];
+  let favValid = ["как дела", "как дела?"];
+  let birthValid = ["16012005", "16.01.2005"];
 
-      if (
-          name === "екатерина" &&
-          birthValid.includes(birth) &&
-          freddyValid.includes(freddy) &&
-          favValid.includes(favq) &&
-          math === "2"
-      ) {
-          // Скрываем форму
-          document.getElementById("form").style.display = "none";
+  if (
+      name === "екатерина" &&
+      birthValid.includes(birth) &&
+      freddyValid.includes(freddy) &&
+      favValid.includes(favq) &&
+      math === "2"
+  ) {
+      // Скрываем форму
+      document.getElementById("form").style.display = "none";
 
-          // Показываем надпись проверки с анимацией
-          let checkingDiv = document.getElementById("checking");
-          checkingDiv.style.display = "block";
+      // Скрываем заголовок и подзаголовок
+      document.querySelector("h1").style.display = "none";
+      document.querySelector(".subtitle").style.display = "none";
 
-          // Ждём 5 секунд, затем перекидываем
-          setTimeout(function(){
-              window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
-          }, 5000);
-      } else {
-          document.getElementById("error").textContent = "Один или несколько ответов неверны";
-      }
-    });
-  </script>
+      // Показываем надпись проверки с анимацией
+      let checkingDiv = document.getElementById("checking");
+      checkingDiv.style.display = "block";
+
+      // Ждём 5 секунд, затем перекидываем
+      setTimeout(function(){
+          window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
+      }, 5000);
+  } else {
+      document.getElementById("error").textContent = "Один или несколько ответов неверны";
+  }
+});
+</script>
 </body>
 </html>
+

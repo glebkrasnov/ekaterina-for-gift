@@ -1,28 +1,28 @@
-/* ЗАДНИЙ ФОН */
+/* ФОН */
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background: url("background.jpg") no-repeat center center fixed; /* ТВОЙ ФОН */
+    background: url("background.jpg") no-repeat center center fixed; /* Твой фон */
     background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center; /* Полное выравнивание по центру */
+    align-items: center;
 }
 
-/* КОНТЕЙНЕР С ТЕСТОМ */
+/* КОНТЕЙНЕР */
 .container {
     width: 90%;
     max-width: 420px;
-    background: rgba(255, 255, 255, 0.88); /* Белая полупрозрачная карточка */
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px; /* одинаковые отступы слева и справа */
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
     text-align: center;
 }
 
-/* ТЕКСТ */
+/* ЗАГОЛОВКИ */
 h1 {
     font-size: 20px;
     margin-bottom: 12px;
@@ -34,14 +34,15 @@ h1 {
     color: #333;
 }
 
-/* ИНПУТЫ */
+/* ПОЛЯ ВВОДА */
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 14px;
     border-radius: 8px;
     border: 1px solid #aaa;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /* КНОПКА */
@@ -54,6 +55,7 @@ button {
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 button:hover {
@@ -71,14 +73,9 @@ button:hover {
 @media (max-width: 480px) {
     .container {
         max-width: 90%;
-        padding: 18px;
+        padding: 20px;
     }
 
-    h1 {
-        font-size: 18px;
-    }
-
-    input, button {
-        font-size: 16px;
-    }
+    h1 { font-size: 18px; }
+    input, button { font-size: 16px; }
 }

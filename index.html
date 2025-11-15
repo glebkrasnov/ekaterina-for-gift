@@ -16,7 +16,7 @@
       <input type="text" id="name" required autocomplete="off">
 
       <label>Введите Вашу дату рождения</label>
-      <input type="text" id="birth" required placeholder="DDMMYYYY" autocomplete="off">
+      <input type="text" id="birth" required autocomplete="off">
 
       <label>Кому принадлежит имя Фредди Фазбер?</label>
       <input type="text" id="freddy" required autocomplete="off">
@@ -44,10 +44,11 @@
 
       let freddyValid = ["медведю", "мишке", "медведь"];
       let favValid = ["как дела", "как дела?"];
+      let birthValid = ["16012005", "16.01.2005"]; // Добавлен новый вариант даты
 
       if (
           name === "екатерина" &&
-          birth === "16012005" &&
+          birthValid.includes(birth) &&
           freddyValid.includes(freddy) &&
           favValid.includes(favq) &&
           math === "2"

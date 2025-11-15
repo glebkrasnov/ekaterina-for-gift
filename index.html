@@ -3,22 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проверочный тест</title>
+  <title>Проверочка</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Анимация точек загрузки */
-    @keyframes dots {
-      0%, 20% { content: ''; }
-      40% { content: '.'; }
-      60% { content: '..'; }
-      80%, 100% { content: '...'; }
-    }
-
-    #checking span::after {
-      content: '';
-      animation: dots 1s infinite steps(1,end);
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -45,54 +31,60 @@
       <p id="error" class="error"></p>
     </form>
 
-    <!-- Блок с надписью проверки и анимацией точек -->
+    <!-- Блок с надписями -->
     <div id="checking" style="display:none; margin-top:20px; font-size:18px; color:#333;">
       Подождите, наши эксперты проверяют ответы<span></span>
+    </div>
+
+    <div id="success" style="display:none; margin-top:20px; font-size:18px; color:green;">
+      Успешно! Держи подарок!
     </div>
   </div>
 
   <script>
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
+    document.getElementById("form").addEventListener("submit", function(e){
+      e.preventDefault();
 
-  let name = document.getElementById("name").value.trim().toLowerCase();
-  let birth = document.getElementById("birth").value.trim();
-  let freddy = document.getElementById("freddy").value.trim().toLowerCase();
-  let favq = document.getElementById("favq").value.trim().toLowerCase();
-  let math = document.getElementById("math").value.trim();
+      let name = document.getElementById("name").value.trim().toLowerCase();
+      let birth = document.getElementById("birth").value.trim();
+      let freddy = document.getElementById("freddy").value.trim().toLowerCase();
+      let favq = document.getElementById("favq").value.trim().toLowerCase();
+      let math = document.getElementById("math").value.trim();
 
-  let freddyValid = ["медведю", "мишке", "медведь"];
-  let favValid = ["как дела", "как дела?"];
-  let birthValid = ["16012005", "16.01.2005"];
+      let freddyValid = ["медведю", "мишке", "медведь"];
+      let favValid = ["как дела", "как дела?"];
+      let birthValid = ["16012005", "16.01.2005"];
 
-  if (
-      name === "екатерина" &&
-      birthValid.includes(birth) &&
-      freddyValid.includes(freddy) &&
-      favValid.includes(favq) &&
-      math === "2"
-  ) {
-      // Скрываем форму
-      document.getElementById("form").style.display = "none";
+      if (
+          name === "екатерина" &&
+          birthValid.includes(birth) &&
+          freddyValid.includes(freddy) &&
+          favValid.includes(favq) &&
+          math === "2"
+      ) {
+          // Скрываем форму и заголовки
+          document.getElementById("form").style.display = "none";
+          document.querySelector("h1").style.display = "none";
+          document.querySelector(".subtitle").style.display = "none";
 
-      // Скрываем заголовок и подзаголовок
-      document.querySelector("h1").style.display = "none";
-      document.querySelector(".subtitle").style.display = "none";
+          // Показываем первую надпись с анимацией
+          let checkingDiv = document.getElementById("checking");
+          checkingDiv.style.display = "block";
 
-      // Показываем надпись проверки с анимацией
-      let checkingDiv = document.getElementById("checking");
-      checkingDiv.style.display = "block";
+          // Через 5 секунд меняем на вторую надпись
+          setTimeout(function(){
+              checkingDiv.style.display = "none";
+              document.getElementById("success").style.display = "block";
 
-      // Ждём 5 секунд, затем перекидываем
-      setTimeout(function(){
-          window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
-      }, 5000);
-  } else {
-      document.getElementById("error").textContent = "Один или несколько ответов неверны";
-  }
-});
-</script>
+              // Ещё через 5 секунд переходим на сайт
+              setTimeout(function(){
+                  window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
+              }, 5000);
+          }, 5000);
+      } else {
+          document.getElementById("error").textContent = "Один или несколько ответов неверны";
+      }
+    });
+  </script>
 </body>
 </html>
-
-

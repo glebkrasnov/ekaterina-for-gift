@@ -3,8 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Проверочка</title>
+  <title>Проверочный тест</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Анимация точек загрузки */
+    @keyframes dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+
+    #checking span::after {
+      content: '';
+      animation: dots 1s infinite steps(1,end);
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -30,6 +44,11 @@
       <button type="submit">Проверить</button>
       <p id="error" class="error"></p>
     </form>
+
+    <!-- Блок с надписью проверки и анимацией точек -->
+    <div id="checking" style="display:none; margin-top:20px; font-size:18px; color:#333;">
+      Подождите, наши эксперты проверяют ответы<span></span>
+    </div>
   </div>
 
   <script>
@@ -44,7 +63,7 @@
 
       let freddyValid = ["медведю", "мишке", "медведь"];
       let favValid = ["как дела", "как дела?"];
-      let birthValid = ["16012005", "16.01.2005"]; // Добавлен новый вариант даты
+      let birthValid = ["16012005", "16.01.2005"];
 
       if (
           name === "екатерина" &&
@@ -53,7 +72,17 @@
           favValid.includes(favq) &&
           math === "2"
       ) {
-          window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
+          // Скрываем форму
+          document.getElementById("form").style.display = "none";
+
+          // Показываем надпись проверки с анимацией
+          let checkingDiv = document.getElementById("checking");
+          checkingDiv.style.display = "block";
+
+          // Ждём 5 секунд, затем перекидываем
+          setTimeout(function(){
+              window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
+          }, 5000);
       } else {
           document.getElementById("error").textContent = "Один или несколько ответов неверны";
       }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проверочный тест</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Для продолжения, пройдите простой тест, ответив на несколько вопросов</h1>
+    <p class="subtitle">Это нужно для того, чтобы проверить, являетесь ли вы тем человеком, для кого предназначен этот подарок</p>
+
+    <form id="form">
+      <label>Введите ваше имя</label>
+      <input type="text" id="name" required>
+
+      <label>Введите Вашу дату рождения</label>
+      <input type="text" id="birth" required placeholder="DDMMYYYY">
+
+      <label>Кому принадлежит имя Фредди Фазбер?</label>
+      <input type="text" id="freddy" required>
+
+      <label>Введите Ваш любимый вопрос</label>
+      <input type="text" id="favq" required>
+
+      <label>1 + 1</label>
+      <input type="text" id="math" required>
+
+      <button type="submit">Проверить</button>
+      <p id="error" class="error"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", function(e){
+      e.preventDefault(); // отменяем стандартное поведение формы
+
+      let name = document.getElementById("name").value.trim().toLowerCase();
+      let birth = document.getElementById("birth").value.trim();
+      let freddy = document.getElementById("freddy").value.trim().toLowerCase();
+      let favq = document.getElementById("favq").value.trim().toLowerCase();
+      let math = document.getElementById("math").value.trim();
+
+      let favValid = ["как дела", "как дела?"];
+
+      if (
+        name === "екатерина" &&
+        birth === "16012005" &&
+        (freddy === "медведю"freddy === "мишке") &&
+        favValid.includes(favq.replace("?", "")) &&
+        math === "2"
+      ) {
+        window.location.href = "https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9";
+      } else {
+        document.getElementById("error").textContent = "Один или несколько ответов неверны";
+      }
+    });
+  </script>
+</body>
+</html>

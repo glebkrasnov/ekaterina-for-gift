@@ -1,0 +1,78 @@
+/* Укажи здесь свой фон */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.25);
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+label {
+  font-size: 15px;
+  margin-top: 10px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #0078ff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 420px) {
+  .container {
+    padding: 16px;
+    margin: 20px auto;
+  }
+  h1 { font-size: 18px; }
+  label, input, button { font-size: 14px; }
+}

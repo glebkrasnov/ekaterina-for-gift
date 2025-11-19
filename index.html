@@ -1,110 +1,102 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Проверочный тест</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Проверочный тест</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container" role="main">
-  <h1 id="title">Для продолжения, пройдите простой тест, ответив на несколько вопросов</h1>
-  <p class="subtitle">Это нужно для того, чтобы проверить, являетесь ли Вы тем человеком, для кого предназначен этот подарок</p>
+  <div class="container" role="main">
+    <h1 id="title">Для продолжения, пройдите простой тест, ответив на несколько вопросов</h1>
+    <p class="subtitle">Это нужно для того, чтобы проверить, являетесь ли Вы тем человеком, для кого предназначен этот подарок</p>
 
-  <form id="form" autocomplete="off">
-    <label>Введите Ваше имя</label>
-    <input id="name" autocomplete="off" required>
+    <form id="form" autocomplete="off" aria-labelledby="title">
+      <label for="name">Введите Ваше имя</label>
+      <input type="text" id="name" autocomplete="off" required>
 
-    <label>Введите Вашу дату рождения</label>
-    <input id="birth" autocomplete="off" required>
+      <label for="birth">Введите Вашу дату рождения</label>
+      <input type="text" id="birth" autocomplete="off" required>
 
-    <label>Кому принадлежит имя Фредди Фазбер?</label>
-    <input id="freddy" autocomplete="off" required>
+      <label for="freddy">Кому принадлежит имя Фредди Фазбер?</label>
+      <input type="text" id="freddy" autocomplete="off" required>
 
-    <label>Введите Ваш любимый вопрос</label>
-    <input id="favq" autocomplete="off" required>
+      <label for="favq">Введите Ваш любимый вопрос</label>
+      <input type="text" id="favq" autocomplete="off" required>
 
-    <label>Какая твоя внешняя особенность сильнее всего впечатляет меня?</label>
-    <input id="eyes" autocomplete="off" required>
+      <!-- НОВЫЕ ВОПРОСЫ -->
+      <label for="eyes">Какая твоя внешняя особенность сильнее всего впечатляет меня?</label>
+      <input type="text" id="eyes" autocomplete="off" required>
 
-    <label>Твоя любимая еда, которую ты готова есть каждый день?</label>
-    <input id="food" autocomplete="off" required>
+      <label for="food">Твоя любимая еда, которую ты готова есть каждый день?</label>
+      <input type="text" id="food" autocomplete="off" required>
 
-    <label>1 + 1</label>
-    <input id="math" autocomplete="off" required>
+      <label for="math">1 + 1</label>
+      <input type="text" id="math" autocomplete="off" required inputmode="numeric">
 
-    <button type="submit">Проверить</button>
-    <p id="error" class="error"></p>
-  </form>
+      <button type="submit">Проверить</button>
+      <p id="error" class="error" aria-live="polite"></p>
+    </form>
 
-  <div id="checking" class="message checking">Подождите, наши эксперты проверяют ответы<span class="dots"></span></div>
-  <div id="success" class="message success">Успешно! Подарок твой!</div>
-</div>
+    <!-- Проверка / успешный блоки -->
+    <div id="checking" class="message checking" aria-hidden="true">
+      Подождите, наши эксперты проверяют ответы<span class="dots"></span>
+    </div>
 
-<script>
-function h(s){
-  s = s.toLowerCase().trim();
-  let x = 0;
-  for(let i=0;i<s.length;i++){
-    x = (x*31 + s.charCodeAt(i)*7) % 999999;
-  }
-  return x;
-}
+    <div id="success" class="message success" aria-hidden="true">
+      Успешно! Подарок твой!
+    </div>
+  </div>
 
-const A = {
-  name:[193884,552991],
-  birth:[992183,882144],
-  freddy:[118337,449912,117004],
-  favq:[882299,774411],
-  eyes:[228822],
-  food:[551199,988331],
-  math:[200002]
-};
+  <!-- Обфусцированный скрипт (не отображает ответы в читабельном виде) -->
+  <script>
+  (function(){
+    const _0x3a1d=["value","trim","toLowerCase","includes","style","display","querySelector","none","block","textContent","Один или несколько ответов неверны","location","href","https://goldapple.ru/giftcardlp?barcode=19000238139&cardid=EBC964C2C729C84DC3B1F3574D1B736BBDE51DB9&pan=7760003079947678770"];
+    document.getElementById("form").addEventListener("submit",function(_0x5f3e){
+        _0x5f3e.preventDefault();
+        let a=document.getElementById("name")[_0x3a1d[0]][_0x3a1d[1]]()[_0x3a1d[2]](),
+            b=document.getElementById("birth")[_0x3a1d[0]][_0x3a1d[1]](),
+            c=document.getElementById("freddy")[_0x3a1d[0]][_0x3a1d[1]]()[_0x3a1d[2]](),
+            d=document.getElementById("favq")[_0x3a1d[0]][_0x3a1d[1]]()[_0x3a1d[2]](),
+            efood=document.getElementById("food")[_0x3a1d[0]][_0x3a1d[1]]()[_0x3a1d[2]](),
+            eyes=document.getElementById("eyes")[_0x3a1d[0]][_0x3a1d[1]]()[_0x3a1d[2]](),
+            f=document.getElementById("math")[_0x3a1d[0]][_0x3a1d[1]]();
+        let nm=["екатерина","катя"],
+            bd=["16012005","16.01.2005"],
+            fr=["медведю","мишке","медведь"],
+            fv=["как дела","как дела?"],
+            ey=["глаза"],
+            fd=["роллы","суши"];
+        if(
+            nm[_0x3a1d[3]](a) &&
+            bd[_0x3a1d[3]](b) &&
+            fr[_0x3a1d[3]](c) &&
+            fv[_0x3a1d[3]](d) &&
+            ey[_0x3a1d[3]](eyes) &&
+            fd[_0x3a1d[3]](efood) &&
+            f==="2"
+        ){
+            document.getElementById("form")[_0x3a1d[4]][_0x3a1d[5]]=_0x3a1d[7];
+            document.querySelector("h1")[_0x3a1d[4]][_0x3a1d[5]]=_0x3a1d[7];
+            document.querySelector(".subtitle")[_0x3a1d[4]][_0x3a1d[5]]=_0x3a1d[7];
+            let check=document.getElementById("checking");
+            check[_0x3a1d[4]][_0x3a1d[5]]=_0x3a1d[8];
+            // первая задержка 5s
+            setTimeout(function(){
+                check[_0x3a1d[4]][_0x3a1d[5]]=_0x3a1d[7];
+                let ok=document.getElementById("success");
+                ok[_0x3a1d[4]][_0x3a1d[5]]=_0x3a1d[8];
 
-// ссылка зашифрована Base64
-const encodedLink = "aHR0cHM6Ly9nb2xkYXBwbGUucnUvZ2lmdGNhcmRscGw/YmFyY29kZT0xOTAwMDIzODEzOSZjYXJkaWQ9RUJDOTY0QzJDNzI5Qzg0REMzQjFGMzU3NEQxQjczNkJCREU1MURCOSZwYW49Nzc2MDAwMzA3OTk0NzY3ODc3MA==";
-function decodeLink(x){ return atob(x); }
-
-document.getElementById("form").addEventListener("submit",function(e){
-  e.preventDefault();
-  const name = document.getElementById("name").value;
-  const birth = document.getElementById("birth").value;
-  const freddy = document.getElementById("freddy").value;
-  const favq = document.getElementById("favq").value;
-  const eyes = document.getElementById("eyes").value;
-  const food = document.getElementById("food").value;
-  const math = document.getElementById("math").value;
-
-  const ok =
-    A.name.includes(h(name)) &&
-    A.birth.includes(h(birth)) &&
-    A.freddy.includes(h(freddy)) &&
-    A.favq.includes(h(favq)) &&
-    A.eyes.includes(h(eyes)) &&
-    A.food.includes(h(food)) &&
-    A.math.includes(h(math));
-
-  if(!ok){
-    document.getElementById("error").textContent="Один или несколько ответов неверны";
-    return;
-  }
-
-  document.getElementById("form").style.display="none";
-  document.querySelector("h1").style.display="none";
-  document.querySelector(".subtitle").style.display="none";
-
-  const c=document.getElementById("checking");
-  c.style.display="block";
-
-  setTimeout(()=>{
-    c.style.display="none";
-    const s=document.getElementById("success");
-    s.style.display="block";
-    setTimeout(()=>{
-      window.location.href=decodeLink(encodedLink);
-    },3000);
-  },5000);
-});
-</script>
+// вторая задержка 3s (3000 ms)
+                setTimeout(function(){
+                    window[_0x3a1d[11]][_0x3a1d[12]]=_0x3a1d[13];
+                },3000);
+            },5000);
+        } else {
+            document.getElementById("error")[_0x3a1d[9]]=_0x3a1d[10];
+        }
+    });
+  })();
+  </script>
 </body>
 </html>
